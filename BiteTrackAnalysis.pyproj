@@ -1,0 +1,53 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>ece11df9-1d18-4703-8a5c-cd579c9206d1</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <StartupFile>LLM.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>BiteTrackAnalysis</Name>
+    <RootNamespace>BiteTrackAnalysis</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="database\database.py" />
+    <Compile Include="LLM.py" />
+    <Compile Include="performance_test.py" />
+    <Compile Include="reliability_test.py" />
+    <Compile Include="tools\code_metrics.py" />
+    <Compile Include="TranslationManager.py" />
+    <Compile Include="translations.py" />
+    <Compile Include="ui\mainScreen.py" />
+    <Compile Include="ui\statistics.kv" />
+    <Compile Include="ui\statisticsScreen.py" />
+    <Compile Include="voiceToText.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="database\" />
+    <Folder Include="tools\" />
+    <Folder Include="ui\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ui\UI.kv" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>

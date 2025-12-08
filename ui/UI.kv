@@ -1,0 +1,98 @@
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Spinner:
+            id: language_spinner
+            text: 'Language'
+            values: ['English', 'Lithuanian']
+            size_hint_y: 0.1
+            on_text: root.set_language(self.text)
+
+        Button:
+            id: record_button
+            text: "Pradėti įrašymą"
+            size_hint_y: 0.1
+            on_press: root.start_recording()
+
+        TextInput:
+            id: transcription
+            hint_text: "Čia bus rodomas transkribuotas tekstas"
+            size_hint_y: 0.2
+            multiline: True
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                id: apply_changes_button
+                text: "Įrašyti pakeitimus"
+                on_press: root.update_from_text()
+
+        Label:
+            id: recognized_label
+            text: "Atpažinti produktai"
+            size_hint_y: 0.05
+
+        ScrollView:
+            id: scroll_view
+            size_hint_y: 0.4
+
+            StackLayout:
+                id: product_list
+                size_hint_y: None
+                height: self.minimum_height
+                orientation: 'lr-tb'
+
+        BoxLayout:
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                id: save_button
+                text: "Išsaugoti"
+                on_press: root.save_to_database()
+
+        BoxLayout:
+            orientation: 'horizontal'
+            size_hint_y: 0.1
+            spacing: 10
+
+            Button:
+                id: reports_button
+                text: "Ataskaitos"
+                on_press: root.load_statistics()
+
+
+<StatisticsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Spinner:
+            id: spinner
+            values: ['Visi', 'Diena', 'Savaitė', 'Mėnuo']
+            size_hint_y: None
+            height: 40
+            on_text: root.set_filter(self.text)
+
+        ScrollView:
+            id: scroll_view
+            size_hint_y: 0.8
+
+            GridLayout:
+                id: stats_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+        Button:
+            id: back_button
+            text: "Grįžti atgal"
+            size_hint_y: None
+            height: 40
+            on_press: root.manager.current = 'main'

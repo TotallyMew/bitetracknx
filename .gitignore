@@ -1,0 +1,8 @@
+# Visual Studio cache
+.vs/
+
+# Python cache
+__pycache__/
+
+# Temporary files
+*.wav

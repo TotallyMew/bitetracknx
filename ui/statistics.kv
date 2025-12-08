@@ -1,0 +1,44 @@
+ScreenManager:
+    MainScreen:
+        name: "main"
+    StatisticsScreen:
+        name: "statistics"
+
+<MainScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Button:
+            text: "📊 Peržiūrėti statistiką"
+            size_hint_y: 0.1
+            on_press: root.load_statistics()
+
+<StatisticsScreen>:
+    BoxLayout:
+        orientation: 'vertical'
+        padding: 10
+        spacing: 10
+
+        Label:
+            text: "📊 Statistika"
+            size_hint_y: None
+            height: 50
+            font_size: 24
+
+        ScrollView:
+            id: scroll_view
+            size_hint_y: 0.8
+
+            GridLayout:
+                id: stats_list
+                cols: 1
+                size_hint_y: None
+                height: self.minimum_height
+
+        Button:
+            text: "🔙 Grįžti atgal"
+            size_hint_y: None
+            height: 40
+            on_press: root.go_back()
